@@ -1,0 +1,62 @@
+name: 🐛 Bug Report / 错误报告
+description: Report errors in automation, broken links, or repo structure. / 报告自动化脚本错误、死链或仓库结构问题。
+title: "[Bug]: "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        > [!IMPORTANT]
+        > If the config file itself works but your internet is slow, **it's your node provider's issue**, not this repo.
+        > 如果是配置载入成功但网速慢/无法联网，通常是**你的机场/节点问题**，请勿在此提交 Bug。
+
+  - type: checkboxes
+    id: prerequisites
+    attributes:
+      label: Pre-check / 预先检查
+      options:
+        - label: I am using the latest version of the config files. / 我使用的是仓库内最新的配置文件。
+          required: true
+        - label: I have checked that the issue is NOT caused by my proxy provider (nodes). / 我已确认问题不是由我的机场订阅（节点）导致的。
+          required: true
+
+  - type: input
+    id: file_path
+    attributes:
+      label: Related File Path / 相关文件路径
+      description: e.g., General_Config/HenryChiao/MihomoAIO.yaml
+      placeholder: Paste the file path here...
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description / 问题描述
+      description: What happened? Please describe the error clearly. / 发生了什么？请详细描述错误现象。
+      placeholder: The link to X is 404, or the automation workflow failed on...
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs or Screenshots / 日志或截图
+      description: Paste any error logs or drag screenshots here. / 请粘贴报错日志或拖入截图。
+      render: shell
+
+  - type: dropdown
+    id: client
+    attributes:
+      label: Client Used / 使用的客户端
+      options:
+        - Mihomo Core (Command Line)
+        - Clash Verge Rev
+        - FlClash
+        - Mihomo Party
+        - OpenClash / Nikki
+        - Metacubex for Android (CMFA)
+        - Surfing / Box4Magisk
+        - Other (Please specify in description)
+    validations:
+      required: true
